@@ -15,7 +15,7 @@ Student: Hannesm Meyer-Rahlfs
 # •	If an invalid value is entered, display a warning message.
 
 def grade_to_numeric(letter_grade, modifier=None):
-    # store grade values in a dictionary
+    # store grade values in a dictionary (my brother taught me this while I was sick over the last two weeks)
     grade_values = {
         'A': 4.0,
         'B': 3.0,
