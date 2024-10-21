@@ -1,3 +1,4 @@
+Student: Hannesm Meyer-Rahlfs
 # Grade Point Calculator
 
 # Create a console-based program that will take a letter grade, such as B+ or C, and convert it to its 
