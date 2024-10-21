@@ -13,17 +13,62 @@
 # •	A valid letter grade can be either uppercase or lowercase.
 # •	If an invalid value is entered, display a warning message.
 
+def grade_to_numeric(letter_grade, modifier=None):
+    # store grade values in a dictionary
+    grade_values = {
+        'A': 4.0,
+        'B': 3.0,
+        'C': 2.0,
+        'D': 1.0,
+        'F': 0.0
+    }
+
+    # Convert the letter grade to uppercase 
+    letter_grade = letter_grade.upper()
+
+    # Check for validity of the letter grade
+    if letter_grade not in grade_values:
+        return "Invalid letter grade!"  # error message if invalid
+
+    # get base numeric value from the dictionary
+    numeric_value = grade_values[letter_grade]
+
+    # Apply modifier to the numeric value if applicable
+    if modifier == '+':
+        if letter_grade != 'A':  
+            numeric_value += 0.3  
+    elif modifier == '-':
+        if letter_grade != 'F': 
+            numeric_value -= 0.3  
+
+    return numeric_value  # Return the calculated numeric value
 
 def main():
-    # YOUR CODE STARTS HERE, each line must be indented (one tab)
+    # Introduction message
+    print("Welcome to the Grade Converter!")
+    print("This program converts letter grades (A-F) into numeric values.")
 
+    # Get the letter grade from the user
+    letter_grade = input("Please enter your letter grade (A, B, C, D, or F): ")
 
+    # Get the optional modifier from the user
+    modifier = input("If you have a modifier, enter it (+ or -). If not, just press Enter: ").strip()
 
+    print(f"\nYou entered the letter grade: '{letter_grade}'")
+    print(f"You entered the modifier: '{modifier}'")
 
+    # Calculate the numeric value based on user input
+    numeric_value = grade_to_numeric(letter_grade, modifier)
 
+    # Check if the result is an error message or a valid numeric value
+    if isinstance(numeric_value, str):
+        print(numeric_value)  
+    else:
+        # Display the resulting numeric value to the user
+        print(f"The numeric value corresponding to your grade is: {numeric_value:.2f}")
 
+    # Closing message
+    print("Thank you for using the Grade Converter!")
 
-
-    # YOUR CODE ENDS HERE
 
 main()
